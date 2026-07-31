@@ -135,6 +135,10 @@ const scoreMap: Record<string, Record<string, number>> = {
   },
 };
 
+const SUPABASE_URL = "https://mqzmgmpyyyzyzcoseiqv.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_xv8a0kgXHwMn8JWWrwKBUg_5S_LwA-Y";
+
 export default function Home() {
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
@@ -167,10 +171,27 @@ export default function Home() {
 
     setStatus("saving");
     try {
-      const response = await fetch("/api/applications", {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/applications`, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ answers, score }),
+        headers: {
+          "content-type": "application/json",
+          apikey: SUPABASE_PUBLISHABLE_KEY,
+          Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify({
+          name: answers.name.trim(),
+          phone: answers.phone.trim(),
+          city: answers.city.trim(),
+          education: answers.education,
+          experience: answers.experience.trim(),
+          availability: answers.availability,
+          instructions: answers.instructions,
+          priorities: answers.priorities,
+          feedback: answers.feedback,
+          interview: answers.interview,
+          score,
+        }),
       });
       if (!response.ok) throw new Error("No se pudo guardar");
       setStatus("done");
