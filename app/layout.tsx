@@ -21,9 +21,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/evaluacion-candidatos/og.png",
-        width: 1536,
-        height: 1024,
+        url: "/evaluacion-candidatos/og.jpg?v=2",
+        width: 1200,
+        height: 632,
+        alt: "Tu próxima oportunidad empieza aquí — Evaluación inicial",
       },
     ],
   },
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/evaluacion-candidatos/og.png"],
+    images: ["/evaluacion-candidatos/og.jpg?v=2"],
   },
 };
 
