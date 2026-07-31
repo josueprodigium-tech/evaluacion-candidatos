@@ -202,7 +202,6 @@ export default function Home() {
             </p>
           </div>
           <div className="facts">
-            <div><strong>3–5</strong><span>minutos</span></div>
             <div><strong>10</strong><span>preguntas</span></div>
             <div><strong>100%</strong><span>desde tu celular</span></div>
           </div>
