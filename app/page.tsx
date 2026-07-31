@@ -10,7 +10,15 @@ type Question = {
   type: "text" | "tel" | "textarea" | "choice";
   placeholder?: string;
   options?: string[];
+  dimension?: Dimension;
 };
+
+type Dimension =
+  | "responsibility"
+  | "organization"
+  | "communication"
+  | "adaptability"
+  | "service";
 
 const questions: Question[] = [
   {
@@ -34,6 +42,14 @@ const questions: Question[] = [
     title: "¿En qué ciudad o zona vives?",
     type: "text",
     placeholder: "Ej. Torreón, Coahuila",
+  },
+  {
+    id: "age_range",
+    eyebrow: "Tu perfil",
+    title: "¿Cuál es tu rango de edad?",
+    hint: "Este dato es únicamente informativo y no afecta tu puntuación.",
+    type: "choice",
+    options: ["18 a 21 años", "22 a 25 años", "26 a 30 años", "31 años o más"],
   },
   {
     id: "education",
@@ -64,39 +80,205 @@ const questions: Question[] = [
     options: ["Sí", "No", "Necesito conocer el horario"],
   },
   {
-    id: "instructions",
-    eyebrow: "Situaciones de trabajo",
-    title: "Si recibes una indicación que no entiendes, ¿qué haces?",
+    id: "vacancy",
+    eyebrow: "Vacante",
+    title: "¿A qué puesto te estás postulando?",
+    type: "text",
+    placeholder: "Escribe el nombre de la vacante",
+  },
+  {
+    id: "r1",
+    eyebrow: "Responsabilidad y disciplina",
+    title: "Si sabes que llegarás tarde por una situación imprevista, ¿qué haces?",
     type: "choice",
+    dimension: "responsibility",
     options: [
-      "Pregunto para asegurarme de realizarla correctamente",
-      "Intento resolverla y después consulto",
-      "Espero a que alguien vuelva a explicarla",
-      "Hago lo que entendí sin preguntar",
+      "Aviso lo antes posible y explico la situación",
+      "Aviso cuando ya debería haber llegado",
+      "Llego y después explico lo sucedido",
+      "No aviso porque fue algo imprevisto",
     ],
   },
   {
-    id: "priorities",
-    eyebrow: "Situaciones de trabajo",
-    title: "Cuando tienes varias tareas pendientes, ¿cómo te organizas?",
+    id: "r2",
+    eyebrow: "Responsabilidad y disciplina",
+    title: "Cometes un error que todavía nadie ha notado. ¿Qué haces?",
     type: "choice",
+    dimension: "responsibility",
     options: [
-      "Priorizo por importancia y fecha de entrega",
-      "Comienzo por las tareas más sencillas",
-      "Pido a mi responsable que elija por mí",
-      "Trabajo en lo que vaya surgiendo",
+      "Lo informo y busco corregirlo inmediatamente",
+      "Intento corregirlo y aviso si no puedo",
+      "Espero para comprobar si causa algún problema",
+      "No lo menciono mientras nadie lo descubra",
     ],
   },
   {
-    id: "feedback",
-    eyebrow: "Situaciones de trabajo",
-    title: "¿Cómo reaccionas cuando recibes retroalimentación?",
+    id: "r3",
+    eyebrow: "Responsabilidad y disciplina",
+    title: "Te asignan una tarea repetitiva que debes realizar diariamente. ¿Qué haces?",
     type: "choice",
+    dimension: "responsibility",
     options: [
-      "La escucho y la utilizo para mejorar",
-      "Pido ejemplos para entenderla mejor",
-      "Me cuesta aceptarla, pero trato de mejorar",
-      "Prefiero evitarla",
+      "La incorporo a mi rutina y verifico que quede terminada",
+      "La realizo cuando recuerdo que está pendiente",
+      "Espero a que mi responsable me la solicite",
+      "Le doy prioridad solamente cuando hay supervisión",
+    ],
+  },
+  {
+    id: "o1",
+    eyebrow: "Organización y prioridades",
+    title: "Recibes tres tareas importantes para el mismo día. ¿Cómo comienzas?",
+    type: "choice",
+    dimension: "organization",
+    options: [
+      "Comparo urgencia, impacto y hora de entrega",
+      "Empiezo por la más sencilla",
+      "Trabajo un poco en cada una sin establecer un orden",
+      "Espero a que alguien decida por mí",
+    ],
+  },
+  {
+    id: "o2",
+    eyebrow: "Organización y prioridades",
+    title: "Una tarea está tomando más tiempo del previsto. ¿Qué haces?",
+    type: "choice",
+    dimension: "organization",
+    options: [
+      "Informo el retraso y propongo una nueva hora de entrega",
+      "Continúo sin avisar hasta terminarla",
+      "La entrego incompleta para cumplir el horario",
+      "La dejo pendiente y comienzo otra actividad",
+    ],
+  },
+  {
+    id: "o3",
+    eyebrow: "Organización y prioridades",
+    title: "Mientras realizas una tarea urgente, un compañero te pide ayuda. ¿Qué haces?",
+    type: "choice",
+    dimension: "organization",
+    options: [
+      "Explico mi prioridad y acuerdo cuándo podré ayudarle",
+      "Dejo inmediatamente mi tarea para ayudarle",
+      "Le digo que no puedo sin ofrecer otra alternativa",
+      "Intento realizar ambas tareas al mismo tiempo",
+    ],
+  },
+  {
+    id: "c1",
+    eyebrow: "Comunicación y trabajo en equipo",
+    title: "Recibes una instrucción que no comprendes completamente. ¿Qué haces?",
+    type: "choice",
+    dimension: "communication",
+    options: [
+      "Explico qué entendí y pregunto lo que falta aclarar",
+      "Intento realizarla y pregunto si algo sale mal",
+      "Pregunto a varios compañeros antes de hablar con el responsable",
+      "Hago lo que creo que se me pidió",
+    ],
+  },
+  {
+    id: "c2",
+    eyebrow: "Comunicación y trabajo en equipo",
+    title: "Un compañero nuevo no sabe realizar una actividad que tú conoces. ¿Qué haces?",
+    type: "choice",
+    dimension: "communication",
+    options: [
+      "Le explico el proceso y verifico que lo comprenda",
+      "Hago la actividad por él para terminar más rápido",
+      "Le indico que pregunte directamente al responsable",
+      "Continúo con mis tareas porque no es mi responsabilidad",
+    ],
+  },
+  {
+    id: "c3",
+    eyebrow: "Comunicación y trabajo en equipo",
+    title: "No estás de acuerdo con una decisión de tu responsable. ¿Qué haces?",
+    type: "choice",
+    dimension: "communication",
+    options: [
+      "Expreso mi opinión con respeto y sigo la decisión acordada",
+      "Comento mi desacuerdo únicamente con mis compañeros",
+      "Ignoro la decisión y trabajo como considero conveniente",
+      "No digo nada, pero realizo la tarea sin interés",
+    ],
+  },
+  {
+    id: "a1",
+    eyebrow: "Adaptabilidad y aprendizaje",
+    title: "Cambian un procedimiento que ya dominabas. ¿Cómo reaccionas?",
+    type: "choice",
+    dimension: "adaptability",
+    options: [
+      "Aprendo el nuevo proceso y pregunto la razón del cambio",
+      "Uso el proceso anterior mientras me acostumbro",
+      "Espero para comprobar si el cambio será permanente",
+      "Me molesta tener que cambiar algo que funcionaba",
+    ],
+  },
+  {
+    id: "a2",
+    eyebrow: "Adaptabilidad y aprendizaje",
+    title: "Te asignan una actividad que nunca has realizado. ¿Qué haces?",
+    type: "choice",
+    dimension: "adaptability",
+    options: [
+      "Solicito orientación, tomo notas y comienzo a practicar",
+      "Digo que no sé realizarla y espero otra asignación",
+      "Intento hacerla sin preguntar para demostrar iniciativa",
+      "Busco que un compañero la realice por mí",
+    ],
+  },
+  {
+    id: "a3",
+    eyebrow: "Adaptabilidad y aprendizaje",
+    title: "Recibes retroalimentación sobre algo que considerabas correcto. ¿Qué haces?",
+    type: "choice",
+    dimension: "adaptability",
+    options: [
+      "Escucho, solicito ejemplos y aplico las mejoras",
+      "Explico por qué mi manera también es válida",
+      "Acepto el comentario, pero continúo igual",
+      "Evito volver a realizar esa actividad",
+    ],
+  },
+  {
+    id: "s1",
+    eyebrow: "Servicio y resolución de problemas",
+    title: "Un cliente está molesto y habla en un tono fuerte. ¿Cómo reaccionas?",
+    type: "choice",
+    dimension: "service",
+    options: [
+      "Mantengo la calma, escucho y busco entender el problema",
+      "Explico inmediatamente por qué no es mi responsabilidad",
+      "Evito responder hasta que se tranquilice",
+      "Respondo con el mismo tono para defenderme",
+    ],
+  },
+  {
+    id: "s2",
+    eyebrow: "Servicio y resolución de problemas",
+    title: "Detectas un problema que ocurre frecuentemente. ¿Qué haces?",
+    type: "choice",
+    dimension: "service",
+    options: [
+      "Investigo la causa y propongo una solución preventiva",
+      "Lo resuelvo cada vez que aparece",
+      "Espero que alguien con más experiencia lo atienda",
+      "Me acostumbro porque forma parte del trabajo",
+    ],
+  },
+  {
+    id: "s3",
+    eyebrow: "Servicio y resolución de problemas",
+    title: "Un cliente solicita algo que no puedes autorizar. ¿Qué haces?",
+    type: "choice",
+    dimension: "service",
+    options: [
+      "Explico el límite y busco una alternativa permitida",
+      "Le digo simplemente que no es posible",
+      "Hago una excepción para evitar que se moleste",
+      "Lo envío con otra persona sin explicar la situación",
     ],
   },
   {
@@ -114,26 +296,19 @@ const questions: Question[] = [
   },
 ];
 
-const scoreMap: Record<string, Record<string, number>> = {
-  instructions: {
-    "Pregunto para asegurarme de realizarla correctamente": 3,
-    "Intento resolverla y después consulto": 2,
-    "Espero a que alguien vuelva a explicarla": 1,
-    "Hago lo que entendí sin preguntar": 0,
-  },
-  priorities: {
-    "Priorizo por importancia y fecha de entrega": 3,
-    "Comienzo por las tareas más sencillas": 2,
-    "Pido a mi responsable que elija por mí": 1,
-    "Trabajo en lo que vaya surgiendo": 0,
-  },
-  feedback: {
-    "La escucho y la utilizo para mejorar": 3,
-    "Pido ejemplos para entenderla mejor": 3,
-    "Me cuesta aceptarla, pero trato de mejorar": 1,
-    "Prefiero evitarla": 0,
-  },
-};
+const dimensions: Dimension[] = [
+  "responsibility",
+  "organization",
+  "communication",
+  "adaptability",
+  "service",
+];
+
+function questionScore(question: Question, answer?: string) {
+  if (!question.dimension || !answer) return 0;
+  const index = question.options?.indexOf(answer) ?? -1;
+  return index >= 0 ? Math.max(0, 3 - index) : 0;
+}
 
 const SUPABASE_URL = "https://mqzmgmpyyyzyzcoseiqv.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY =
@@ -148,13 +323,24 @@ export default function Home() {
   const question = questions[step];
   const answer = question ? answers[question.id] ?? "" : "";
   const progress = Math.round(((step + 1) / questions.length) * 100);
-  const score = useMemo(
+  const dimensionScores = useMemo(
     () =>
-      Object.entries(scoreMap).reduce(
-        (total, [id, values]) => total + (values[answers[id]] ?? 0),
-        0,
-      ),
+      Object.fromEntries(
+        dimensions.map((dimension) => [
+          dimension,
+          questions
+            .filter((item) => item.dimension === dimension)
+            .reduce(
+              (total, item) => total + questionScore(item, answers[item.id]),
+              0,
+            ),
+        ]),
+      ) as Record<Dimension, number>,
     [answers],
+  );
+  const score = useMemo(
+    () => dimensions.reduce((total, dimension) => total + dimensionScores[dimension], 0),
+    [dimensionScores],
   );
 
   function setAnswer(value: string) {
@@ -183,14 +369,26 @@ export default function Home() {
           name: answers.name.trim(),
           phone: answers.phone.trim(),
           city: answers.city.trim(),
+          age_range: answers.age_range,
           education: answers.education,
           experience: answers.experience.trim(),
           availability: answers.availability,
-          instructions: answers.instructions,
-          priorities: answers.priorities,
-          feedback: answers.feedback,
+          vacancy: answers.vacancy.trim(),
+          instructions: answers.c1,
+          priorities: answers.o1,
+          feedback: answers.a3,
           interview: answers.interview,
           score,
+          responsibility_score: dimensionScores.responsibility,
+          organization_score: dimensionScores.organization,
+          communication_score: dimensionScores.communication,
+          adaptability_score: dimensionScores.adaptability,
+          service_score: dimensionScores.service,
+          assessment_answers: Object.fromEntries(
+            questions
+              .filter((item) => item.dimension)
+              .map((item) => [item.id, answers[item.id]]),
+          ),
         }),
       });
       if (!response.ok) throw new Error("No se pudo guardar");
@@ -218,12 +416,12 @@ export default function Home() {
             <span className="pill">Evaluación inicial</span>
             <h1>Tu próxima oportunidad empieza aquí.</h1>
             <p>
-              Queremos conocerte un poco mejor. Responde 10 preguntas sencillas
-              y selecciona tu horario preferido para una entrevista.
+              Queremos conocer tu forma de trabajar. Responde 15 situaciones
+              laborales y completa tus datos para continuar con el proceso.
             </p>
           </div>
           <div className="facts">
-            <div><strong>10</strong><span>preguntas</span></div>
+            <div><strong>15</strong><span>situaciones evaluadas</span></div>
             <div><strong>100%</strong><span>desde tu celular</span></div>
           </div>
           <button className="primary-button start-button" onClick={() => setStarted(true)}>

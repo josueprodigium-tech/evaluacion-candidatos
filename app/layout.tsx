@@ -3,7 +3,7 @@ import "./globals.css";
 
 const title = "Evaluación inicial | Proceso de selección";
 const description =
-  "Completa tu evaluación inicial y elige un horario para tu entrevista.";
+  "Completa 15 situaciones laborales y continúa con tu proceso de selección.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
