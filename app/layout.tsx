@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/evaluacion-candidatos/og.jpg?v=2",
+        url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=3",
         width: 1200,
         height: 632,
         alt: "Tu próxima oportunidad empieza aquí — Evaluación inicial",
@@ -32,7 +32,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/evaluacion-candidatos/og.jpg?v=2"],
+    images: [
+      "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=3",
+    ],
   },
 };
 
