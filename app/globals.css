@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #17221d;
-  --muted: #66716b;
-  --paper: #fffefa;
-  --cream: #f4f0e7;
-  --green: #173f35;
-  --green-light: #d8ebe1;
-  --lime: #d8f36a;
-  --line: #deddd5;
+  --ink: #10213d;
+  --muted: #61718a;
+  --paper: #ffffff;
+  --cream: #eef5ff;
+  --green: #1358a8;
+  --green-light: #dbeafe;
+  --lime: #63b3ff;
+  --line: #d8e3f1;
 }
 
 * { box-sizing: border-box; }
@@ -33,17 +33,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 10% 10%, rgba(216, 243, 106, .18), transparent 30%),
-    linear-gradient(145deg, #f7f3ea 0%, #ece8df 100%);
+    radial-gradient(circle at 10% 10%, rgba(99, 179, 255, .24), transparent 32%),
+    linear-gradient(145deg, #f6faff 0%, #e5f0ff 100%);
 }
 
 .intro-card, .question-card, .result-card {
   width: min(100%, 720px);
   position: relative;
-  background: rgba(255, 254, 250, .96);
-  border: 1px solid rgba(23, 63, 53, .12);
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid rgba(19, 88, 168, .13);
   border-radius: 28px;
-  box-shadow: 0 30px 90px rgba(23, 34, 29, .12);
+  box-shadow: 0 30px 90px rgba(16, 53, 99, .14);
 }
 
 .intro-card { padding: 34px 40px 30px; }
@@ -87,7 +87,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .pill {
   padding: 8px 12px;
-  border: 1px solid rgba(23, 63, 53, .14);
+  border: 1px solid rgba(19, 88, 168, .16);
   border-radius: 999px;
   background: var(--green-light);
 }
@@ -133,18 +133,18 @@ h1 {
   font-weight: 800;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(23, 63, 53, .2);
+  box-shadow: 0 10px 25px rgba(19, 88, 168, .24);
   transition: transform .18s ease, opacity .18s ease, box-shadow .18s ease;
 }
 
 .primary-button:hover, .whatsapp-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(23, 63, 53, .24);
+  box-shadow: 0 14px 30px rgba(19, 88, 168, .3);
 }
 
 .primary-button:disabled { opacity: .36; cursor: not-allowed; transform: none; box-shadow: none; }
 .start-button { width: 100%; }
-.privacy { margin: 16px auto 0; max-width: 500px; color: #7b817e; font-size: 11px; line-height: 1.5; text-align: center; }
+.privacy { margin: 16px auto 0; max-width: 500px; color: #718096; font-size: 11px; line-height: 1.5; text-align: center; }
 
 .ambient { position: absolute; border-radius: 999px; filter: blur(2px); opacity: .5; }
 .ambient-one { width: 240px; height: 240px; right: -100px; top: -100px; background: var(--lime); }
@@ -160,7 +160,7 @@ h1 {
 .compact .brand-mark { width: 30px; height: 30px; font-size: 18px; }
 .counter { color: var(--muted); font-size: 13px; font-weight: 700; }
 
-.progress-track { height: 5px; overflow: hidden; border-radius: 999px; background: #e5e3dc; }
+.progress-track { height: 5px; overflow: hidden; border-radius: 999px; background: #dce8f7; }
 .progress-value { height: 100%; border-radius: inherit; background: var(--lime); transition: width .35s ease; }
 
 .question-copy { min-height: 178px; padding: 44px 0 22px; animation: rise .3s ease both; }
@@ -181,7 +181,7 @@ h1 {
 .answer-area textarea { resize: vertical; min-height: 145px; padding: 17px 18px; line-height: 1.55; }
 .answer-area input:focus, .answer-area textarea:focus {
   border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(23, 63, 53, .08);
+  box-shadow: 0 0 0 4px rgba(19, 88, 168, .1);
 }
 .answer-area input::placeholder, .answer-area textarea::placeholder { color: #a1a5a2; }
 
@@ -201,8 +201,8 @@ h1 {
   cursor: pointer;
   transition: border-color .18s ease, background .18s ease, transform .18s ease;
 }
-.choice:hover { transform: translateX(3px); border-color: #aab7b0; }
-.choice.selected { border-color: var(--green); background: #edf5f0; }
+.choice:hover { transform: translateX(3px); border-color: #83addc; }
+.choice.selected { border-color: var(--green); background: #eaf3ff; }
 .choice-key {
   width: 30px;
   height: 30px;
@@ -234,7 +234,7 @@ h1 {
   background: var(--lime);
   font-size: 34px;
   font-weight: 900;
-  box-shadow: 0 0 0 10px rgba(216, 243, 106, .2);
+  box-shadow: 0 0 0 10px rgba(99, 179, 255, .2);
 }
 .result-card h1 { margin: 24px 0 14px; font-size: clamp(42px, 7vw, 64px); }
 .result-card p { max-width: 520px; margin: 0 auto 30px; }
