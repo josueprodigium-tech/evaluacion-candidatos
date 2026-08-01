@@ -267,9 +267,9 @@ const questions: Question[] = [
     type: "choice",
     options: [
       "10:00 a. m.",
-      "11:30 a. m.",
-      "1:00 p. m.",
-      "Necesito otra fecha u horario",
+      "12:00 p. m.",
+      "2:00 p. m.",
+      "4:00 p. m.",
     ],
   },
 ];
