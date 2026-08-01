@@ -40,8 +40,8 @@ const questions: Question[] = [
     id: "city",
     eyebrow: "Ubicación",
     title: "¿En qué ciudad o zona vives?",
-    type: "text",
-    placeholder: "Ej. Torreón, Coahuila",
+    type: "choice",
+    options: ["Torreón", "Gómez Palacio", "Lerdo", "Otra ciudad o municipio"],
   },
   {
     id: "age_range",
@@ -67,10 +67,15 @@ const questions: Question[] = [
   {
     id: "experience",
     eyebrow: "Experiencia",
-    title: "Cuéntanos brevemente sobre tu experiencia laboral",
-    hint: "Si buscas tu primera oportunidad, también puedes decirnos qué te gustaría aprender.",
-    type: "textarea",
-    placeholder: "Escribe una respuesta breve…",
+    title: "¿Cuánta experiencia laboral tienes?",
+    type: "choice",
+    options: [
+      "Aún no tengo experiencia laboral",
+      "Menos de 6 meses",
+      "De 6 meses a 1 año",
+      "De 1 a 2 años",
+      "Más de 2 años",
+    ],
   },
   {
     id: "availability",
@@ -83,8 +88,14 @@ const questions: Question[] = [
     id: "vacancy",
     eyebrow: "Vacante",
     title: "¿A qué puesto te estás postulando?",
-    type: "text",
-    placeholder: "Escribe el nombre de la vacante",
+    type: "choice",
+    options: [
+      "Asesoría de ventas",
+      "Atención al cliente",
+      "Administración",
+      "Operaciones",
+      "Otra vacante",
+    ],
   },
   {
     id: "r1",
