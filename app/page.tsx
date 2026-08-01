@@ -291,6 +291,7 @@ function questionScore(question: Question, answer?: string) {
 const SUPABASE_URL = "https://mqzmgmpyyyzyzcoseiqv.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_xv8a0kgXHwMn8JWWrwKBUg_5S_LwA-Y";
+const WHATSAPP_NUMBER = "528716052401";
 
 export default function Home() {
   const [started, setStarted] = useState(false);
@@ -431,7 +432,7 @@ export default function Home() {
           </div>
           <a
             className="whatsapp-button"
-            href={`https://wa.me/?text=${whatsappMessage}`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`}
             target="_blank"
             rel="noreferrer"
           >
