@@ -3,7 +3,7 @@ import "./globals.css";
 
 const title = "Evaluación inicial | Proceso de selección";
 const description =
-  "Completa 15 situaciones laborales y continúa con tu proceso de selección.";
+  "Completa 15 situaciones laborales para una vacante presencial en Ciudad Juárez, Chihuahua.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(

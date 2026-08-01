@@ -347,7 +347,7 @@ export default function Home() {
         body: JSON.stringify({
           name: answers.name.trim(),
           phone: answers.phone.trim(),
-          city: "No solicitado",
+          city: "Ciudad Juárez, Chihuahua",
           age_range: answers.age_range,
           education: answers.education,
           experience: "No solicitado",
@@ -378,7 +378,7 @@ export default function Home() {
   }
 
   const whatsappMessage = encodeURIComponent(
-    `Hola, soy ${answers.name || ""}. Ya terminé mi evaluación inicial y elegí ${answers.interview || "un horario por confirmar"}. Quedo pendiente de la confirmación.`,
+    `Hola, soy ${answers.name || ""}. Ya terminé mi evaluación para la vacante presencial en Ciudad Juárez, Chihuahua y elegí ${answers.interview || "un horario por confirmar"}. Quedo pendiente de la confirmación.`,
   );
 
   if (!started) {
@@ -397,6 +397,7 @@ export default function Home() {
             <p>
               Queremos conocer tu forma de trabajar. Responde 15 situaciones
               laborales y completa tus datos para continuar con el proceso.
+              La vacante es presencial en Ciudad Juárez, Chihuahua.
             </p>
           </div>
           <div className="facts">
