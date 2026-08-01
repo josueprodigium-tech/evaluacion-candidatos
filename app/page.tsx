@@ -7,7 +7,7 @@ type Question = {
   eyebrow: string;
   title: string;
   hint?: string;
-  type: "text" | "tel" | "textarea" | "choice";
+  type: "text" | "tel" | "textarea" | "choice" | "select";
   placeholder?: string;
   options?: string[];
   dimension?: Dimension;
@@ -39,10 +39,10 @@ const questions: Question[] = [
   {
     id: "age_range",
     eyebrow: "Tu perfil",
-    title: "¿Cuál es tu rango de edad?",
+    title: "¿Cuál es tu edad?",
     hint: "Este dato es únicamente informativo y no afecta tu puntuación.",
-    type: "choice",
-    options: ["18 a 21 años", "22 a 25 años", "26 a 30 años", "31 años o más"],
+    type: "select",
+    options: Array.from({ length: 13 }, (_, index) => `${index + 18} años`),
   },
   {
     id: "education",
@@ -480,6 +480,18 @@ export default function Home() {
                 </button>
               ))}
             </div>
+          ) : question.type === "select" ? (
+            <select
+              autoFocus
+              value={answer}
+              onChange={(event) => setAnswer(event.target.value)}
+              aria-label={question.title}
+            >
+              <option value="" disabled>Selecciona tu edad</option>
+              {question.options?.map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
           ) : question.type === "textarea" ? (
             <textarea
               autoFocus
