@@ -262,8 +262,8 @@ const questions: Question[] = [
   {
     id: "interview",
     eyebrow: "Último paso",
-    title: "¿Qué horario prefieres para una entrevista?",
-    hint: "El horario queda sujeto a confirmación por WhatsApp.",
+    title: "¿Qué horario prefieres para tu entrevista virtual del martes 4 de agosto?",
+    hint: "Esta es la única fecha disponible. El lunes 3 de agosto te enviaremos por WhatsApp el enlace de Zoom.",
     type: "choice",
     options: [
       "10:00 a. m.",
@@ -378,7 +378,7 @@ export default function Home() {
   }
 
   const whatsappMessage = encodeURIComponent(
-    `Hola, soy ${answers.name || ""}. Ya terminé mi evaluación para la vacante presencial en Ciudad Juárez, Chihuahua y elegí ${answers.interview || "un horario por confirmar"}. Quedo pendiente de la confirmación.`,
+    `Hola, soy ${answers.name || ""}. Ya terminé mi evaluación para la vacante presencial en Ciudad Juárez, Chihuahua. Elegí mi entrevista virtual del martes 4 de agosto a las ${answers.interview || "hora por confirmar"}. Quedo pendiente de recibir el enlace de Zoom el lunes 3 de agosto.`,
   );
 
   if (!started) {
@@ -424,11 +424,12 @@ export default function Home() {
           <span className="pill">Evaluación completada</span>
           <h1>¡Gracias, {answers.name?.split(" ")[0]}!</h1>
           <p>
-            Recibimos tus respuestas correctamente. El último paso es volver a
-            WhatsApp para que nuestro equipo confirme tu entrevista.
+            Recibimos tus respuestas correctamente. Tu entrevista virtual será
+            el martes 4 de agosto en el horario elegido. El lunes 3 de agosto
+            te enviaremos por WhatsApp el enlace de Zoom.
           </p>
           <div className="summary">
-            <span>Horario solicitado</span>
+            <span>Martes 4 de agosto</span>
             <strong>{answers.interview}</strong>
           </div>
           <a
