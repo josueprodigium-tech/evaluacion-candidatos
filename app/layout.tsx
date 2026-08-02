@@ -19,9 +19,10 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
+    url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/?v=4",
     images: [
       {
-        url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=3",
+        url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=4",
         width: 1200,
         height: 632,
         alt: "Tu próxima oportunidad empieza aquí — Evaluación inicial",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     title,
     description,
     images: [
-      "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=3",
+      "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=4",
     ],
   },
 };
