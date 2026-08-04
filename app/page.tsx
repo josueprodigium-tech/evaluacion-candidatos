@@ -266,7 +266,6 @@ const questions: Question[] = [
     hint: "Esta es la única fecha disponible. El lunes 3 de agosto te enviaremos por WhatsApp el enlace de Zoom.",
     type: "choice",
     options: [
-      "10:00 a. m.",
       "12:00 p. m.",
       "2:00 p. m.",
       "4:00 p. m.",
