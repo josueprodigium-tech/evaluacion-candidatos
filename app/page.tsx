@@ -291,6 +291,8 @@ const SUPABASE_URL = "https://mqzmgmpyyyzyzcoseiqv.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_xv8a0kgXHwMn8JWWrwKBUg_5S_LwA-Y";
 const WHATSAPP_NUMBER = "528716052401";
+const ZOOM_LINK =
+  "https://us06web.zoom.us/j/3949784856?pwd=NkVVYndncm9jNkJjZmkyKy9hVldYQT09";
 
 export default function Home() {
   const [started, setStarted] = useState(false);
@@ -377,7 +379,7 @@ export default function Home() {
   }
 
   const whatsappMessage = encodeURIComponent(
-    `Hola, soy ${answers.name || ""}. Ya terminé mi evaluación para la vacante presencial en Ciudad Juárez, Chihuahua. Elegí mi entrevista virtual del martes 4 de agosto a las ${answers.interview || "hora por confirmar"}. Quedo pendiente de recibir el enlace de Zoom el lunes 3 de agosto.`,
+    `Hola, soy ${answers.name || ""}. Confirmo mi entrevista virtual para el martes 4 de agosto a las ${answers.interview || "hora por confirmar"}.\n\nEnlace de Zoom:\n${ZOOM_LINK}`,
   );
 
   if (!started) {
@@ -424,8 +426,8 @@ export default function Home() {
           <h1>¡Gracias, {answers.name?.split(" ")[0]}!</h1>
           <p>
             Recibimos tus respuestas correctamente. Tu entrevista virtual será
-            el martes 4 de agosto en el horario elegido. El lunes 3 de agosto
-            te enviaremos por WhatsApp el enlace de Zoom.
+            el martes 4 de agosto en el horario elegido. Da clic en el botón
+            para confirmar y guardar el enlace de Zoom en tu conversación.
           </p>
           <div className="summary">
             <span>Martes 4 de agosto</span>
@@ -437,7 +439,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
           >
-            Continuar en WhatsApp <span aria-hidden="true">↗</span>
+            Confirmar entrevista <span aria-hidden="true">↗</span>
           </a>
           <small>Completar esta evaluación no garantiza la contratación.</small>
         </section>
