@@ -91,19 +91,6 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "r3",
-    eyebrow: "Responsabilidad y disciplina",
-    title: "Te asignan una tarea repetitiva que debes realizar diariamente. ¿Qué haces?",
-    type: "choice",
-    dimension: "responsibility",
-    options: [
-      "La incorporo a mi rutina y verifico que quede terminada",
-      "La realizo cuando recuerdo que está pendiente",
-      "Espero a que mi responsable me la solicite",
-      "Le doy prioridad solamente cuando hay supervisión",
-    ],
-  },
-  {
     id: "o1",
     eyebrow: "Organización y prioridades",
     title: "Recibes tres tareas importantes para el mismo día. ¿Cómo comienzas?",
@@ -127,19 +114,6 @@ const questions: Question[] = [
       "Continúo sin avisar hasta terminarla",
       "La entrego incompleta para cumplir el horario",
       "La dejo pendiente y comienzo otra actividad",
-    ],
-  },
-  {
-    id: "o3",
-    eyebrow: "Organización y prioridades",
-    title: "Mientras realizas una tarea urgente, un compañero te pide ayuda. ¿Qué haces?",
-    type: "choice",
-    dimension: "organization",
-    options: [
-      "Explico mi prioridad y acuerdo cuándo podré ayudarle",
-      "Dejo inmediatamente mi tarea para ayudarle",
-      "Le digo que no puedo sin ofrecer otra alternativa",
-      "Intento realizar ambas tareas al mismo tiempo",
     ],
   },
   {
@@ -169,19 +143,6 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "c3",
-    eyebrow: "Comunicación y trabajo en equipo",
-    title: "No estás de acuerdo con una decisión de tu responsable. ¿Qué haces?",
-    type: "choice",
-    dimension: "communication",
-    options: [
-      "Expreso mi opinión con respeto y sigo la decisión acordada",
-      "Comento mi desacuerdo únicamente con mis compañeros",
-      "Ignoro la decisión y trabajo como considero conveniente",
-      "No digo nada, pero realizo la tarea sin interés",
-    ],
-  },
-  {
     id: "a1",
     eyebrow: "Adaptabilidad y aprendizaje",
     title: "Cambian un procedimiento que ya dominabas. ¿Cómo reaccionas?",
@@ -208,19 +169,6 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "a3",
-    eyebrow: "Adaptabilidad y aprendizaje",
-    title: "Recibes retroalimentación sobre algo que considerabas correcto. ¿Qué haces?",
-    type: "choice",
-    dimension: "adaptability",
-    options: [
-      "Escucho, solicito ejemplos y aplico las mejoras",
-      "Explico por qué mi manera también es válida",
-      "Acepto el comentario, pero continúo igual",
-      "Evito volver a realizar esa actividad",
-    ],
-  },
-  {
     id: "s1",
     eyebrow: "Servicio y resolución de problemas",
     title: "Un cliente está molesto y habla en un tono fuerte. ¿Cómo reaccionas?",
@@ -244,19 +192,6 @@ const questions: Question[] = [
       "Lo resuelvo cada vez que aparece",
       "Espero que alguien con más experiencia lo atienda",
       "Me acostumbro porque forma parte del trabajo",
-    ],
-  },
-  {
-    id: "s3",
-    eyebrow: "Servicio y resolución de problemas",
-    title: "Un cliente solicita algo que no puedes autorizar. ¿Qué haces?",
-    type: "choice",
-    dimension: "service",
-    options: [
-      "Explico el límite y busco una alternativa permitida",
-      "Le digo simplemente que no es posible",
-      "Hago una excepción para evitar que se moleste",
-      "Lo envío con otra persona sin explicar la situación",
     ],
   },
   {
@@ -291,7 +226,7 @@ function questionScore(question: Question, answer?: string) {
 const SUPABASE_URL = "https://dppknadgadueodmgunji.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_fpHq9PErCfTtgbJrHf728g_zP-vy1ef";
-const WHATSAPP_NUMBER = "528716052401";
+const WHATSAPP_NUMBER = "526568640976";
 const ZOOM_LINK =
   "https://us06web.zoom.us/j/3949784856?pwd=NkVVYndncm9jNkJjZmkyKy9hVldYQT09";
 
@@ -357,7 +292,7 @@ export default function Home() {
           vacancy: "Vacante actual",
           instructions: answers.c1,
           priorities: answers.o1,
-          feedback: answers.a3,
+          feedback: answers.a2,
           interview: answers.interview,
           score,
           responsibility_score: dimensionScores.responsibility,
@@ -397,13 +332,13 @@ export default function Home() {
             <span className="pill">Evaluación inicial</span>
             <h1>Tu próxima oportunidad empieza aquí.</h1>
             <p>
-              Queremos conocer tu forma de trabajar. Responde 15 situaciones
+              Queremos conocer tu forma de trabajar. Responde 10 situaciones
               laborales y completa tus datos para continuar con el proceso.
               La vacante es presencial en Ciudad Juárez, Chihuahua.
             </p>
           </div>
           <div className="facts">
-            <div><strong>15</strong><span>situaciones evaluadas</span></div>
+            <div><strong>10</strong><span>situaciones evaluadas</span></div>
             <div><strong>100%</strong><span>desde tu celular</span></div>
           </div>
           <button className="primary-button start-button" onClick={() => setStarted(true)}>
