@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   ),
   title,
   description,
+  alternates: {
+    canonical:
+      "https://josueprodigium-tech.github.io/evaluacion-candidatos/?v=whatsapp2026",
+  },
   icons: {
     icon: "/evaluacion-candidatos/favicon.svg",
     shortcut: "/evaluacion-candidatos/favicon.svg",
@@ -19,12 +23,17 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
-    url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/?v=wa10",
+    locale: "es_MX",
+    siteName: "Proceso de selección",
+    url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/?v=whatsapp2026",
     images: [
       {
-        url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=wa10",
+        url: "https://josueprodigium-tech.github.io/evaluacion-candidatos/vista-previa-whatsapp.jpg",
+        secureUrl:
+          "https://josueprodigium-tech.github.io/evaluacion-candidatos/vista-previa-whatsapp.jpg",
         width: 1200,
         height: 632,
+        type: "image/jpeg",
         alt: "Tu próxima oportunidad empieza aquí — Evaluación inicial",
       },
     ],
@@ -34,7 +43,7 @@ export const metadata: Metadata = {
     title,
     description,
     images: [
-      "https://josueprodigium-tech.github.io/evaluacion-candidatos/og.jpg?v=wa10",
+      "https://josueprodigium-tech.github.io/evaluacion-candidatos/vista-previa-whatsapp.jpg",
     ],
   },
 };
