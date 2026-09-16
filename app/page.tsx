@@ -262,13 +262,14 @@ const questions: Question[] = [
   {
     id: "interview",
     eyebrow: "Último paso",
-    title: "¿Qué horario prefieres para tu entrevista virtual del martes 4 de agosto?",
-    hint: "Esta es la única fecha disponible. El lunes 3 de agosto te enviaremos por WhatsApp el enlace de Zoom.",
+    title: "¿Qué horario prefieres para tu entrevista virtual del lunes 21 de septiembre?",
+    hint: "Esta es la única fecha disponible. Al finalizar podrás confirmar tu entrevista y recibir el enlace de Zoom por WhatsApp.",
     type: "choice",
     options: [
+      "10:00 a. m.",
+      "11:00 a. m.",
       "12:00 p. m.",
-      "2:00 p. m.",
-      "4:00 p. m.",
+      "1:00 p. m.",
     ],
   },
 ];
@@ -287,9 +288,9 @@ function questionScore(question: Question, answer?: string) {
   return index >= 0 ? Math.max(0, 3 - index) : 0;
 }
 
-const SUPABASE_URL = "https://mqzmgmpyyyzyzcoseiqv.supabase.co";
+const SUPABASE_URL = "https://dppknadgadueodmgunji.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY =
-  "sb_publishable_xv8a0kgXHwMn8JWWrwKBUg_5S_LwA-Y";
+  "sb_publishable_fpHq9PErCfTtgbJrHf728g_zP-vy1ef";
 const WHATSAPP_NUMBER = "528716052401";
 const ZOOM_LINK =
   "https://us06web.zoom.us/j/3949784856?pwd=NkVVYndncm9jNkJjZmkyKy9hVldYQT09";
@@ -379,7 +380,7 @@ export default function Home() {
   }
 
   const whatsappMessage = encodeURIComponent(
-    `Hola, soy ${answers.name || ""}. Confirmo mi entrevista virtual para el martes 4 de agosto a las ${answers.interview || "hora por confirmar"}.\n\nEnlace de Zoom:\n${ZOOM_LINK}`,
+    `Hola, soy ${answers.name || ""}. Confirmo mi entrevista virtual para el lunes 21 de septiembre de 2026 a las ${answers.interview || "hora por confirmar"}.\n\nEnlace de Zoom:\n${ZOOM_LINK}`,
   );
 
   if (!started) {
@@ -426,11 +427,11 @@ export default function Home() {
           <h1>¡Gracias, {answers.name?.split(" ")[0]}!</h1>
           <p>
             Recibimos tus respuestas correctamente. Tu entrevista virtual será
-            el martes 4 de agosto en el horario elegido. Da clic en el botón
+            el lunes 21 de septiembre en el horario elegido. Da clic en el botón
             para confirmar y guardar el enlace de Zoom en tu conversación.
           </p>
           <div className="summary">
-            <span>Martes 4 de agosto</span>
+            <span>Lunes 21 de septiembre</span>
             <strong>{answers.interview}</strong>
           </div>
           <a
