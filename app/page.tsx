@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Question = {
   id: string;
@@ -231,10 +231,15 @@ const ZOOM_LINK =
   "https://us06web.zoom.us/j/3949784856?pwd=NkVVYndncm9jNkJjZmkyKy9hVldYQT09";
 
 export default function Home() {
+  const [reviewMode, setReviewMode] = useState(false);
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "saving" | "done" | "error">("idle");
+
+  useEffect(() => {
+    setReviewMode(new URLSearchParams(window.location.search).get("proceso") === "revision");
+  }, []);
 
   const question = questions[step];
   const answer = question ? answers[question.id] ?? "" : "";
@@ -360,23 +365,34 @@ export default function Home() {
           <div className="success-icon" aria-hidden="true">✓</div>
           <span className="pill">Evaluación completada</span>
           <h1>¡Gracias, {answers.name?.split(" ")[0]}!</h1>
-          <p>
-            Recibimos tus respuestas correctamente. Tu entrevista virtual será
-            el lunes 21 de septiembre en el horario elegido. Da clic en el botón
-            para confirmar y guardar el enlace de Zoom en tu conversación.
-          </p>
-          <div className="summary">
-            <span>Lunes 21 de septiembre</span>
-            <strong>{answers.interview}</strong>
-          </div>
-          <a
-            className="whatsapp-button"
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Confirmar entrevista <span aria-hidden="true">↗</span>
-          </a>
+          {reviewMode ? (
+            <p>
+              Recibimos tus respuestas correctamente. Revisaremos tu solicitud
+              y, si avanzas a la siguiente etapa, nos comunicaremos contigo el
+              domingo 20 de septiembre. Si no recibes un mensaje ese día, no
+              continuarás en este proceso de selección.
+            </p>
+          ) : (
+            <>
+              <p>
+                Recibimos tus respuestas correctamente. Tu entrevista virtual será
+                el lunes 21 de septiembre en el horario elegido. Da clic en el botón
+                para confirmar y guardar el enlace de Zoom en tu conversación.
+              </p>
+              <div className="summary">
+                <span>Lunes 21 de septiembre</span>
+                <strong>{answers.interview}</strong>
+              </div>
+              <a
+                className="whatsapp-button"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Confirmar entrevista <span aria-hidden="true">↗</span>
+              </a>
+            </>
+          )}
           <small>Completar esta evaluación no garantiza la contratación.</small>
         </section>
       </main>
@@ -401,7 +417,13 @@ export default function Home() {
         <div className="question-copy" key={question.id}>
           <span className="eyebrow">{question.eyebrow}</span>
           <h1>{question.title}</h1>
-          {question.hint && <p>{question.hint}</p>}
+          {question.hint && (
+            <p>
+              {reviewMode && question.id === "interview"
+                ? "Indica el horario que prefieres. Revisaremos tu solicitud antes de confirmar una entrevista."
+                : question.hint}
+            </p>
+          )}
         </div>
 
         <div className="answer-area">
