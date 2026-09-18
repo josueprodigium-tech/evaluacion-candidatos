@@ -42,7 +42,7 @@ const questions: Question[] = [
     title: "¿Cuál es tu edad?",
     hint: "Este dato es únicamente informativo y no afecta tu puntuación.",
     type: "select",
-    options: Array.from({ length: 13 }, (_, index) => `${index + 18} años`),
+    options: Array.from({ length: 83 }, (_, index) => `${index + 18} años`),
   },
   {
     id: "education",
